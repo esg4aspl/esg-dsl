@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1254"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.mert.com/recherche/MkDsl"
+			class = "com.mert.recherche.mkDsl.MkDslPackage"
+			genModel = "model/generated/MkDsl.genmodel" />
+	</extension>
+</plugin>

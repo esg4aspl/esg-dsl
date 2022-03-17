@@ -1,0 +1,90 @@
+grammar com.mert.recherche.MkDsl with org.eclipse.xtext.common.Terminals
+
+generate mkDsl "http://www.mert.com/recherche/MkDsl"
+
+Model:
+	declarations+=Declaration*
+;
+	
+Declaration:
+	ESG
+;
+
+ESG: 'ESG' name = STRING
+	('Event' event = Event)?
+	subESGs += (VERTEX | ESG) (',' subESGs += (VERTEX | ESG))*
+	edges += EDGE(',' edges += EDGE)*
+;
+
+VERTEX: 'Vertex'
+	'ID' ID = STRING
+	'Event' event = Event
+	('Color' color= COLOR)?
+	(dt = DT)?
+;
+
+Event:
+	name = STRING
+;
+
+EDGE: 'Edge' name = STRING
+	'Source' source= INT
+	'Target' target= INT
+	('Color' color= COLOR)?
+;
+	
+DT: "DT" name = STRING
+	"ID" ID = INT
+	conditions += CONDITION (',' conditions += CONDITION)*
+	actions += ACTION (',' actions += ACTION)*
+	rules += RULE (',' rules += RULE)*
+;
+
+CONDITION: "Condition" name = INT
+	evals += EVALUABLE(evals += EVALUABLE)*
+;
+
+RULE: "Rule" name = STRING
+	"ID" ID = INT
+	"value" value = STRING
+	"variables" vars += VARIABLE("," vars += VARIABLE)*
+	"actions" actions += [ACTION]("," actions += [ACTION])*
+;
+
+ACTION: "Action" name = ID
+	"ID" ID = STRING
+	"event" event = INT
+;
+
+EVALUABLE:
+	EXPRESSION | CONNECTIVE
+;
+
+EXPRESSION:
+    "("
+    left = LITERAL
+    (operand = OPERAND)?
+    (right= LITERAL)?
+    ")"
+;
+
+CONNECTIVE:
+	connective = ("AND" | "OR")
+;
+
+VARIABLE: 'var' name = STRING
+	'value' value = LITERAL
+;   
+
+OPERAND:
+	operand = ("<"|"<="|"=="|">="|">")
+;
+
+LITERAL :
+	 INT | STRING
+;
+
+COLOR:
+	name = ("black"|"red"|"green"|"blue"|"orange")
+;
+	

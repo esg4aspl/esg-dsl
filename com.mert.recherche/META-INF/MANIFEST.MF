@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.mert.recherche
+Bundle-ManifestVersion: 2
+Bundle-Name: com.mert.recherche
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.mert.recherche; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: com.mert.recherche.mkDsl.impl,
+ com.mert.recherche.mkDsl,
+ com.mert.recherche.mkDsl.util,
+ com.mert.recherche.parser.antlr.internal,
+ com.mert.recherche.scoping,
+ com.mert.recherche.parser.antlr,
+ com.mert.recherche,
+ com.mert.recherche.generator,
+ com.mert.recherche.services,
+ com.mert.recherche.validation,
+ com.mert.recherche.serializer
+Import-Package: org.apache.log4j
