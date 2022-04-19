@@ -40,10 +40,6 @@ class MkDslGenerator extends AbstractGenerator {
 			"ID": «graph.name»,
 			"name":"refinedESG",
 			"vertices":[
-				{
-					"ID": 0,
-					"event":"["
-				},
 				«FOR subESG : graph.subESGs SEPARATOR ","»
 					«IF(subESG instanceof ESG)»
 						«runSubESGRule(subESG)»
@@ -52,13 +48,8 @@ class MkDslGenerator extends AbstractGenerator {
 						«runVertexRule(subESG)»
 					«ENDIF»
 				«ENDFOR»
-				
-				,{
-					"ID": «graph.subESGs.size + 1»,
-					"event":"]"
-				}
-				],
-				«runEdgeRule(graph.edges, graph.subESGs.size)»
+			],
+				«runEdgeRule(graph.edges)»
 				«FOR subESG : graph.subESGs»
 					«IF(subESG instanceof VERTEX)»		
 						«IF(subESG.dt != null)»
@@ -72,15 +63,9 @@ class MkDslGenerator extends AbstractGenerator {
 	'''
 	)}
 	
-	def runEdgeRule(EList<EDGE> edges, int vertexSize) {
+	def runEdgeRule(EList<EDGE> edges) {
 	'''
 	"edges":[
-	{
-		"ID": 0,
-		"source": 0,
-		"target": 1,
-		"color":"black"			
-	},
 	«FOR edge : edges SEPARATOR ","»
 	{
 		"ID": «edge.name»,
@@ -89,12 +74,6 @@ class MkDslGenerator extends AbstractGenerator {
 		"color":"«getColor(edge.color)»"			
 	}
 	«ENDFOR»
-	,{
-		"ID": «edges.size + 1»,
-		"source": «vertexSize»,
-		"target": «vertexSize +1»,
-		"color":"black"						
-	}
 	]
 	'''
 	}
@@ -108,10 +87,6 @@ class MkDslGenerator extends AbstractGenerator {
 			"ID": «esg.name»,
 			"name": "«esg.event.name»_subESG",
 			"vertices":[
-			{
-				"ID": 0,
-				"event":"["
-			}, 
 			«FOR subESG : esg.subESGs SEPARATOR ","»		
 				«IF(subESG instanceof VERTEX)»
 					«runVertexRule(subESG)»
@@ -121,12 +96,8 @@ class MkDslGenerator extends AbstractGenerator {
 				«ENDIF»
 			«ENDFOR»
 					
-			,{
-				"ID": «esg.subESGs.size + 1»,
-				"event":"]"
-			}
 			],
-			«runEdgeRule(esg.edges, esg.subESGs.size)»
+			«runEdgeRule(esg.edges)»
 			«FOR subESG : esg.subESGs»
 				«IF(subESG instanceof VERTEX)»		
 					«IF(subESG.dt != null)»
