@@ -1,0 +1,374 @@
+ESG "0"
+	Vertex
+	ID "0"
+	Event "[",
+
+	ESG "1"
+	Event "Login"
+		Vertex
+		ID "0"
+		Event "[",
+	
+		Vertex
+		ID "1"
+		Event "Username Entered",
+		
+		Vertex
+		ID "2"
+		Event "Password Entered",
+		
+		Vertex
+		ID "3"
+		Event "Correct Password",
+		
+		Vertex
+		ID "4"
+		Event "Wrong Password",
+		
+		Vertex
+		ID "5"
+		Event "Show Error",
+		
+		Vertex
+		ID "6"
+		Event "Card Blocked",
+		
+		Vertex
+		ID "7"
+		Event "Card Retained",
+		
+		Vertex
+		ID "8"
+		Event "]"
+		
+		Edge "0"
+		Source 0
+		Target 1,
+		
+		Edge "1"
+		Source 1
+		Target 2,
+		
+		Edge "2"
+		Source 2
+		Target 3,
+		
+		Edge "3"
+		Source 2
+		Target 4,
+		
+		Edge "4"
+		Source 4
+		Target 5,
+		
+		Edge "5"
+		Source 5
+		Target 1,
+		
+		Edge "6"
+		Source 3
+		Target 8,
+		
+		Edge "7"
+		Source 4
+		Target 6,
+		
+		Edge "8"
+		Source 6
+		Target 7,
+		
+		Edge "9"
+		Source 7
+		Target 8,
+	
+	ESG "2"
+	Event "Withdraw"
+		Vertex
+		ID "0"
+		Event "[",
+		
+		Vertex
+		ID "1"
+		Event "Amount Entered",
+		
+		Vertex
+		ID "2"
+		Event "Amount Confirmed",
+		
+		Vertex
+		ID "3"
+		Event "Balance Updated",
+		
+		Vertex
+		ID "4"
+		Event "Session Refreshed",
+		
+		Vertex
+		ID "5"
+		Event "Amount Invalid",
+		
+		Vertex
+		ID "6"
+		Event "Show Error",
+		
+		Vertex
+		ID "7"
+		Event "]"
+		
+		Edge "0"
+		Source 0
+		Target 1,
+		
+		Edge "1"
+		Source 1
+		Target 2,
+		
+		Edge "2"
+		Source 2
+		Target 3,
+		
+		Edge "3"
+		Source 3
+		Target 4,
+		
+		Edge "4"
+		Source 4
+		Target 7,
+		
+		Edge "5"
+		Source 1
+		Target 5,
+		
+		Edge "6"
+		Source 5
+		Target 6,
+		
+		Edge "7"
+		Source 6
+		Target 1,
+		
+		Edge "8"
+		Source 0
+		Target 1,
+		
+		Edge "9"
+		Source 6
+		Target 7,
+	
+	ESG "3"
+	Event "Deposit"
+		Vertex
+		ID "0"
+		Event "[",
+		
+		Vertex
+		ID "1"
+		Event "Amount Entered",
+		
+		Vertex
+		ID "2"
+		Event "Amount Confirmed",
+		
+		Vertex
+		ID "3"
+		Event "Balance Updated",
+		
+		Vertex
+		ID "4"
+		Event "Session Refreshed",
+		
+		Vertex
+		ID "5"
+		Event "Amount Invalid",
+		
+		Vertex
+		ID "6"
+		Event "Show Error",
+		
+		Vertex
+		ID "7"
+		Event "]"
+		
+		Edge "0"
+		Source 0
+		Target 1,
+		
+		Edge "1"
+		Source 1
+		Target 2,
+		
+		Edge "2"
+		Source 2
+		Target 3,
+		
+		Edge "3"
+		Source 3
+		Target 4,
+		
+		Edge "4"
+		Source 4
+		Target 7,
+		
+		Edge "5"
+		Source 1
+		Target 5,
+		
+		Edge "6"
+		Source 5
+		Target 6,
+		
+		Edge "7"
+		Source 6
+		Target 1,
+		
+		Edge "8"
+		Source 0
+		Target 1,
+		
+		Edge "9"
+		Source 6
+		Target 7,
+	
+	ESG "4"
+	Event "Print Bill"
+		Vertex
+		ID "0"
+		Event "[",
+		
+		Vertex
+		ID "1"
+		Event "Bill Requested",
+		
+		Vertex
+		ID "2"
+		Event "Bill Printed",
+		
+		Vertex
+		ID "3"
+		Event "Email sent",
+		
+		Vertex
+		ID "4"
+		Event "SMS sent",
+		
+		Vertex
+		ID "5"
+		Event "Show Error",
+		
+		Vertex
+		ID "6"
+		Event "]"
+		
+		Edge "0"
+		Source 0
+		Target 1,
+		
+		Edge "1"
+		Source 1
+		Target 2,
+		
+		Edge "2"
+		Source 2
+		Target 3,
+		
+		Edge "3"
+		Source 2
+		Target 4,
+		
+		Edge "4"
+		Source 1
+		Target 5,
+		
+		Edge "5"
+		Source 4
+		Target 6,
+		
+		Edge "6"
+		Source 5
+		Target 6,
+		
+		Edge "7"
+		Source 3
+		Target 6,
+	
+	ESG "5"
+	Event "Logout"
+		Vertex
+		ID "0"
+		Event "[",
+		
+		Vertex
+		ID "1"
+		Event "Logout Requested",
+		
+		Vertex
+		ID "2"
+		Event "Clear Session",
+		
+		Vertex
+		ID "3"
+		Event "Eject Card",
+		
+		Vertex
+		ID "4"
+		Event "Show Message",
+		
+		Vertex
+		ID "5"
+		Event "]"
+		
+		Edge "0"
+		Source 0
+		Target 1,
+		
+		Edge "1"
+		Source 1
+		Target 2,
+		
+		Edge "2"
+		Source 2
+		Target 3,
+		
+		Edge "3"
+		Source 3
+		Target 4,
+		
+		Edge "4"
+		Source 4
+		Target 5,
+	
+Vertex
+ID "6"
+Event "]"
+
+Edge "0"
+Source 0
+Target 1,
+
+Edge "0"
+Source 0
+Target 1,
+
+Edge "1"
+Source 1
+Target 2,
+
+Edge "2"
+Source 1
+Target 3,
+
+Edge "3"
+Source 2
+Target 4,
+
+Edge "4"
+Source 3
+Target 4,
+
+Edge "5"
+Source 4
+Target 5,
+
+Edge "6"
+Source 5
+Target 6
