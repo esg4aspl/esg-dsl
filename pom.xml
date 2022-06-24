@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.esg4aspl</groupId>
+  <artifactId>esg-dsl</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>ESG DSL</name>
+  <description>Event Sequence Graph Domain Specific Language</description>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.eclipse.tycho</groupId>
+  			<artifactId>tycho-maven-plugin</artifactId>
+  			<version>2.7.3</version>
+  			<extensions>true</extensions>
+  			<configuration>
+    		<target>
+      		<artifact>
+        		<groupId>com.mert.recherche</groupId>
+        		<artifactId>com.mert.recherche.target</artifactId>
+        		<version>1.0.0.qualifier</version>
+      		</artifact>
+    		</target>
+    		<environments>
+      			<environment>
+        			<os>macosx</os>
+        			<ws>cocoa</ws>
+        			<arch>x86_64</arch>
+      			</environment>
+		      <environment>
+		        <os>win32</os>
+		        <ws>win32</ws>
+		        <arch>x86_64</arch>
+		      </environment>
+    		</environments>
+  			</configuration>
+		</plugin>
+		<plugin>
+		  <groupId>org.eclipse.xtext</groupId>
+		  <artifactId>xtext-maven-plugin</artifactId>
+		  <version>2.6.0</version>
+		  <executions>
+		    <execution>
+		    </execution>
+		  </executions>
+		  <configuration>
+		    <classPathLookupFilter>.*recherche.*</classPathLookupFilter>
+		    <languages>
+		      <language>
+		        <setup>com.mert.recherche.MkDslStandaloneSetup</setup>
+		        <outputConfigurations>
+		          <outputConfiguration>
+		            <outputDirectory>${project.build.directory}/recherche</outputDirectory>
+		          </outputConfiguration>
+		        </outputConfigurations>
+		      </language>
+		    </languages>
+		  </configuration>
+		  <dependencies>
+		  </dependencies>
+		</plugin>
+  	</plugins>
+ </build>
+ 
+  <dependencies>
+  <dependency>
+    <groupId>org.eclipse.tycho</groupId>
+    <artifactId>tycho-maven-plugin</artifactId>
+    <version>2.7.3</version>
+  </dependency>
+  </dependencies>
+ 
+</project>
