@@ -196,8 +196,8 @@ public class MkDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         name=STRING 
 	 *         event=Event? 
 	 *         (subESGs+=VERTEX | subESGs+=ESG) 
-	 *         subESGs+=ESG? 
-	 *         (subESGs+=VERTEX? subESGs+=ESG?)* 
+	 *         subESGs+=VERTEX? 
+	 *         (subESGs+=ESG? subESGs+=VERTEX?)* 
 	 *         edges+=EDGE 
 	 *         edges+=EDGE*
 	 *     )
