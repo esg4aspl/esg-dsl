@@ -1,0 +1,32 @@
+ESG "0"
+	Vertex
+	ID "1"
+	Event "a",
+	 
+	Vertex 
+	ID "2"
+	Event "b",
+		
+	Vertex
+	ID "3"
+	Event "c",
+	
+	Vertex
+	ID "4"
+	Event "d"
+	
+	Edge "1"
+	Source 1
+	Target 2,
+	
+	Edge "2"
+	Source 2
+	Target 3,
+	
+	Edge "3"
+	Source 3
+	Target 2,
+	
+	Edge "4"
+	Source 2
+	Target 4
