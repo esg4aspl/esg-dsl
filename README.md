@@ -12,7 +12,7 @@ Domain Specific Language for ESGs
 * Java
 * Xtext
 
-### Dependenciessd
+### Dependencies
 * Eclipse Xtext [Setup Xtext](https://www.eclipse.org/Xtext/download.html)
 * Graphviz [Setup Graphviz](https://graphviz.org/download/)
 * Eclipse & Java 11+
