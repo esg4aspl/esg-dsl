@@ -1,0 +1,119 @@
+ESG "0"
+	Vertex
+	ID "0"
+	Event "[",
+	
+	ESG "1" Event "Login"
+	Vertex
+	ID "0"
+	Event "[",
+	
+	Vertex
+	ID "1"
+	Event "User name entered",
+	
+	Vertex
+	ID "2"
+	Event "Password Entered"
+	DT "Password Entered"
+	ID 0
+		Condition 0 ("Password is type of string"),
+		Condition 1 ("Password should have upper case") AND ("Password should have lower case")
+		
+		Action A0
+		ID "0"
+		event 1,
+		
+		Action A1
+		ID "1"
+		event 3,
+		
+		Action A2
+		ID "2"
+		event 4
+		
+		Rule "R1"
+		ID 1
+		value "TF"
+		variables
+			var "password" value "kalecik95"
+		actions A0, A1,
+		
+		Rule "R2"
+		ID 2
+		value "TT"
+		variables
+			var "password" value "kM95"
+		actions A2,
+	
+	Vertex
+	ID "3"
+	Event "Show error",
+	
+	Vertex
+	ID "4"
+	Event "Login successful",
+	
+	Vertex
+	ID "5"
+	Event "]"
+	
+	Edge "0"
+	Source 0
+	Target 1,
+	
+	Edge "1"
+	Source 1
+	Target 2,
+	
+	Edge "2"
+	Source 2
+	Target 3,
+	
+	Edge "3"
+	Source 3
+	Target 5,
+	
+	Edge "4"
+	Source 1
+	Target 3,
+	
+	Edge "5"
+	Source 2
+	Target 4,
+	
+	Edge "6"
+	Source 4
+	Target 5,
+	
+	Vertex
+	ID "2"
+	Event "Change Password"
+	Color orange,
+	
+	Vertex
+	ID "3"
+	Event "Logout"
+	Color green,
+	
+	Vertex
+	ID "4"
+	Event "]"
+	
+	Edge "0"
+	Source 0
+	Target 1,
+	
+	Edge "1"
+	Source 1
+	Target 2
+	Color red,
+	
+	Edge "2"
+	Source 2
+	Target 3
+	Color blue,
+	
+	Edge "3"
+	Source 3
+	Target 4
